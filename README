@@ -2,5 +2,7 @@ Automatic processing of Summit Station radiosondes
 
 Modify setup.sh to your liking and run ./updatde-sondes.sh 
 
-You'll need mwx2root (https://github.com/cozzyd/mwx2root) in your path 
+You'll need mwx2root (https://github.com/cozzyd/mwx2root) in your path.
+
+Eventually a jsroot-based web interface for browsing radiosonde data may appear here :)
 
