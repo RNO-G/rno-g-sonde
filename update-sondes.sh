@@ -38,12 +38,21 @@ first=1
 for fullmwxfile in ${SONDE_RAW_DATA_DIR}/* ; 
 do
   mwxfile=${fullmwxfile##*/}
-  rootfile=${mwxfile%.mwx}.root
+  name=${mwxfile%.mwx}
+  rootfile=${name}.root
+  gpxfile=${name}.gpx
 
   if [ "$fullmwxfile" -nt ${SONDE_ROOT_DATA_DIR}/$rootfile ] ; 
   then 
     mwx2root $fullmwxfile -o ${SONDE_ROOT_DATA_DIR}/$rootfile ${SONDE_DATASETS}
   fi 
+
+  if [ "$fullmwxfile" -nt ${SONDE_GPX_DATA_DIR}/$gpxfile.gz ] ; 
+  then 
+    root -b -q makegpx.C\(\"${SONDE_ROOT_DATA_DIR}/$rootfile\",\"${SONDE_GPX_DATA_DIR}/$gpxfile\",\"$name\"\)
+    gzip ${SONDE_GPX_DATA_DIR}/$gpxfile 
+  fi
+
   if [ $first -eq 0 ] 
   then 
     echo -n "  ," >> ${SONDE_JSON_FILE} 
