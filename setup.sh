@@ -1,6 +1,7 @@
 SONDE_RAW_DATA_DIR=/data/sonde/raw
 SONDE_ROOT_DATA_DIR=/data/sonde/root
 SONDE_GPX_DATA_DIR=/data/sonde/gpx
+SONDE_JSON_DATA_DIR=/data/sonde/json
 SONDE_DATASETS="GpsResults RawPtu PtuResults GpsRawMeasurements GpsRawChannelData Radiosondes IonoCorrections Soundings WindResults TelemetryData"
 SONDE_FTP_HOST=ftp1.esrl.noaa.gov
 SONDE_FTP_DIR=/psd3/arctic/summit/radiosonde/raw
